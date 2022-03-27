@@ -5,21 +5,23 @@
  */
 package com.mycompany.hash_structures;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author NaniXC7
+ * @author USUARIO
  */
 public class Registro1 extends javax.swing.JFrame {
-
     HashMap<String, String> lista = new HashMap<>();
     HashMap<String, ArrayList<String>> multiValueMap = new HashMap<String, ArrayList<String>>();
 
     /**
-     * Creates new form Registro
+     * Creates new form Registro1
      */
     public Registro1() {
         initComponents();
@@ -35,76 +37,86 @@ public class Registro1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         dpi = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        vac = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         fech = new javax.swing.JTextField();
-        btnnRegistro = new javax.swing.JButton();
+        vac = new javax.swing.JTextField();
         clc = new javax.swing.JButton();
+        btnnRegistro = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         clave = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         mostrarDatos = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro de Vacunas");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("REGISTRO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 60));
+        getContentPane().add(dpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 205, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CUI");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 30, 40));
-        getContentPane().add(dpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 205, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 30, 40));
 
         jLabel4.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("VACUNA");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 80, 20));
-        getContentPane().add(vac, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 205, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 80, 20));
 
         jLabel5.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("FECHA");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 60, 40));
-        getContentPane().add(fech, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 205, -1));
-
-        btnnRegistro.setFont(new java.awt.Font("Sitka Small", 1, 11)); // NOI18N
-        btnnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hash_structures/icons8_Check_Circle_30px_2.png"))); // NOI18N
-        btnnRegistro.setText("REGISTRAR");
-        btnnRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnRegistroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 140, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 60, 40));
+        getContentPane().add(fech, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 205, -1));
+        getContentPane().add(vac, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 205, -1));
 
         clc.setFont(new java.awt.Font("Sitka Small", 1, 11)); // NOI18N
-        clc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hash_structures/icons8_ccleaner_30px.png"))); // NOI18N
         clc.setText("LIMPIAR");
         clc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clcActionPerformed(evt);
             }
         });
-        getContentPane().add(clc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 140, -1));
+        getContentPane().add(clc, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 140, -1));
+
+        btnnRegistro.setFont(new java.awt.Font("Sitka Small", 1, 11)); // NOI18N
+        btnnRegistro.setText("REGISTRAR");
+        btnnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnRegistroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("BUSQUEDA");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        getContentPane().add(clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 208, -1));
 
         jLabel7.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CUI");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 30, 20));
-        getContentPane().add(clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 208, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 30, 20));
+
+        mostrarDatos.setColumns(20);
+        mostrarDatos.setRows(5);
+        jScrollPane1.setViewportView(mostrarDatos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 460, -1));
 
         jButton1.setFont(new java.awt.Font("Sitka Small", 1, 11)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hash_structures/icons8_search_30px.png"))); // NOI18N
         jButton1.setText("BUSCAR");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,29 +124,28 @@ public class Registro1 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Sitka Small", 1, 11)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hash_structures/icons8_ccleaner_30px.png"))); // NOI18N
         jButton2.setText("LIMPIAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
-        mostrarDatos.setColumns(20);
-        mostrarDatos.setRows(5);
-        jScrollPane1.setViewportView(mostrarDatos);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 512, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hash_structures/vacu.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 510));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USUARIO\\Desktop\\Colaborator\\Hash_Structures\\src\\main\\java\\Images\\vacu.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clcActionPerformed
+        dpi.setText("");
+        vac.setText("");
+        fech.setText("");
+    }//GEN-LAST:event_clcActionPerformed
 
     private void btnnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnRegistroActionPerformed
         String DPI = dpi.getText();
@@ -164,18 +175,62 @@ public class Registro1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnnRegistroActionPerformed
 
-    private void clcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clcActionPerformed
-        dpi.setText("");
-        vac.setText("");
-        fech.setText("");
-    }//GEN-LAST:event_clcActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+String word = clave.getText().toString().trim();
+        Scanner entrada = null;
+            String linea;
+            int numeroDeLinea = 1;
+            boolean contiene = false;
+            Scanner sc = new Scanner(System.in);
 
+            //Para seleccionar el archivo
+            
+
+            //Introducimos el texto a buscar
+         
+            String texto = clave.getText().toString().trim();
+            String DPI = dpi.getText();
+            try {
+                //guardamos el path del fichero en la variable ruta
+                //String ruta = j.getSelectedFile().getAbsolutePath();
+                //creamos un objeto File asociado al fichero seleccionado
+                File f = new File("C:\\Users\\USUARIO\\Desktop\\Test.txt");
+                //creamos un Scanner para leer el fichero
+                entrada = new Scanner(f);
+                //mostramos el nombre del fichero
+                System.out.println("Archivo: " + f.getName());
+                //mostramos el texto a buscar
+                System.out.println("Texto a buscar: " + texto);
+                while (entrada.hasNext()) { //mientras no se llegue al final del fichero
+                    linea = entrada.nextLine();  //se lee una línea
+                    if (linea.contains(texto)) {   //si la línea contiene el texto buscado se muestra por pantalla         
+                        System.out.println("Linea " + numeroDeLinea + ": " + linea);
+                        mostrarDatos.setText(linea);
+                        contiene = true;
+                    }
+                    numeroDeLinea++; //se incrementa el contador de líneas
+                }
+                if(!contiene){ //si el archivo no contienen el texto se muestra un mensaje indicándolo
+
+                    System.out.println(texto + " no se ha encontrado en el archivo");
+                    JOptionPane.showMessageDialog(null, "EL CUI: "+DPI+" NO SE ENCUEMTRA REGISTRADO ");
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e.toString());
+            } catch (NullPointerException e) {
+                System.out.println(e.toString() + "No ha seleccionado ningún archivo");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            } finally {
+                if (entrada != null) {
+                    entrada.close();
+                }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        mostrarDatos.setText("");
+        clave.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -203,6 +258,20 @@ public class Registro1 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Registro1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
